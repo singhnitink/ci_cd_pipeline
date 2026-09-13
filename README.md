@@ -6,3 +6,8 @@ Step4. make a main.py file and add the fastapi code
 Step5: uvicorn main:app --reload
 Step6: open http://127.0.0.1:8000/ in the browser
 Step7: test the application (http://127.0.0.1:8000/add?a=5&b=10)
+# Test the application with pytest
+Step8: pytest
+# Make the yml file for the ci pipeline
+Step9: make the .github/workflows/ci.yml file
+# Push the code to the github repo (it will trigger the ci pipeline)
