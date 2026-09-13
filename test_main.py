@@ -21,7 +21,6 @@ def test_add_numbers():
     assert response.status_code == 200
     assert response.json() == {"result": 15.0}
 
-
 def test_substract_numbers():
     response = client.post("/subtract", json={"a": 10.0, "b": 5.0})
     assert response.status_code == 200
