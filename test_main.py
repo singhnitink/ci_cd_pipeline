@@ -26,3 +26,9 @@ def test_substract_numbers():
     response = client.post("/subtract", json={"a": 10.0, "b": 5.0})
     assert response.status_code == 200
     assert response.json() == {"result": 5.0}
+
+
+def test_multiply_numbers():
+    response = client.post("/multiply", json={"a": 4.0, "b": 3.0})
+    assert response.status_code == 200
+    assert response.json() == {"result": 12.0}

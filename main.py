@@ -24,3 +24,9 @@ def add_numbers(a: float, b: float):
 @app.post("/subtract")
 def subtract_numbers(data: dict):
     return {"result": data["a"] - data["b"]}
+
+
+# Post multiply
+@app.post("/multiply")
+def multiply_numbers(data: dict):
+    return {"result": data["a"] * data["b"]}
