@@ -1,0 +1,41 @@
+name: Python CI Pipeline
+
+# 1. TRIGGER: When should this pipeline run?
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. JOBS: What tasks should it perform?
+jobs:
+  test:
+    name: Run Linting and Tests
+    runs-on: ubuntu-latest # Cloud virtual machine provided by GitHub
+
+    steps:
+      # Step A: Download our repository code onto the virtual machine
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      # Step B: Install Python on the cloud machine
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Step C: Install our dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step D: Run our linter
+      - name: Run Flake8 linter
+        run: |
+          flake8 .
+
+      # Step E: Run our automated tests
+      - name: Run Pytest test suite
+        run: |
+          pytest
